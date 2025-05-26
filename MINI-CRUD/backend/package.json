@@ -1,5 +1,5 @@
 {
-  "name": "mini-crud",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "express": "^5.1.0",
     "mongodb": "^6.16.0"
   }
 }
