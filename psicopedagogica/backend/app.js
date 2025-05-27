@@ -6,6 +6,7 @@ const sqlite3 = require('sqlite3').verbose();
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const courseRoutes = require('./routes/courseRoutes');
+const bookRoutes = require('./routes/bookRoutes'); // Uncomment if you have book routes
 
 dotenv.config();
 const app = express();
@@ -56,6 +57,7 @@ app.get('/', (req, res) => {
 // dentro del app.use
 app.use('/api/auth', authRoutes);   
 app.use('/api/courses', courseRoutes);
+app.use('/api/books', bookRoutes);
 
 module.exports = {
     app,
