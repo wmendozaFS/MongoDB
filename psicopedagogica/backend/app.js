@@ -4,6 +4,9 @@ const dotenv = require('dotenv');
 const mysql = require('mysql2/promise');
 const sqlite3 = require('sqlite3').verbose();
 const mongoose = require('mongoose');
+const authRoutes = require('./routes/authRoutes');
+const courseRoutes = require('./routes/courseRoutes');
+
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -48,7 +51,11 @@ sqlite.run(`CREATE TABLE IF NOT EXISTS logs (
 app.get('/', (req, res) => {
     res.send('Welcome to the Consultoria Mind')
 }
+
 );
+// dentro del app.use
+app.use('/api/auth', authRoutes);   
+app.use('/api/courses', courseRoutes);
 
 module.exports = {
     app,
