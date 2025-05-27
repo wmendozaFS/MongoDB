@@ -1,16 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config({ path: './.env' });  // Si .env está un nivel arriba
+const alumnosRoutes = require('./routes/alumnos.routes');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', require('./routes/auth.routes'));
-app.use('/api/categories', require('./routes/category.routes'));
-app.use('/api/orders', require('./routes/order_status_h.routes'));
+app.use('/api/alumnos', alumnosRoutes);
 
-const PORT = process.env.PORT || 4000;
+const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });
